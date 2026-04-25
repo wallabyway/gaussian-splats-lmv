@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>LMV + 3DGS Splat Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css">
+    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { margin: 0; padding: 0; }
+        #viewer { height: calc(100vh - 56px); }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<nav class="h-14 bg-white border-b border-gray-200 flex items-center px-4 gap-4 shadow-sm">
+    <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">G</div>
+        <span class="font-semibold text-gray-800 text-lg">LMV + 3DGS Splat Demo</span>
+    </div>
+
+    <div class="flex-1"></div>
+
+    <span id="status" class="text-sm text-gray-500"></span>
+
+    <select id="modelSelect" class="border border-gray-300 rounded-md px-3 py-1.5 text-sm bg-white text-gray-700 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+        <option value="">Choose a model</option>
+    </select>
+</nav>
+
+<div id="viewer"></div>
+
+<script type="module" src="./app.mjs"></script>
+</body>
+</html>
