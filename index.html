@@ -8,8 +8,9 @@
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { margin: 0; padding: 0; }
-        #viewer { height: calc(100vh - 56px); }
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { display: flex; flex-direction: column; }
+        #viewer { flex: 1; min-height: 0; }
     </style>
 </head>
 <body class="bg-gray-100">

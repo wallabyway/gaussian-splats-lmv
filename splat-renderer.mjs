@@ -200,6 +200,8 @@ export class GaussianSplatRenderer {
         this.sortInterval = 700;
         this.splatCount = 0;
         this.lastCameraMatrix = new THREE.Matrix4();
+        this.width = innerWidth;
+        this.height = innerHeight;
         this.positions = null;
         this.colors = null;
         this.opacities = null;
@@ -241,8 +243,8 @@ export class GaussianSplatRenderer {
 
         this.material = new THREE.ShaderMaterial({
             uniforms: {
-                W: { type: 'f', value: innerWidth },
-                H: { type: 'f', value: innerHeight },
+                W: { type: 'f', value: this.width },
+                H: { type: 'f', value: this.height },
                 focal_x: { type: 'f', value: 0 },
                 focal_y: { type: 'f', value: 0 },
                 tan_fovx: { type: 'f', value: 0 },
@@ -312,7 +314,7 @@ export class GaussianSplatRenderer {
 
     update(camera) {
         if (!this.mesh) return;
-        const W = innerWidth, H = innerHeight;
+        const W = this.width, H = this.height;
         const fov_y = camera.fov * Math.PI / 180;
         const tan_fovy = Math.tan(fov_y * 0.5);
         const tan_fovx = tan_fovy * W / H;
@@ -343,6 +345,8 @@ export class GaussianSplatRenderer {
     }
 
     resize(w, h) {
+        this.width = w;
+        this.height = h;
         if (this.material) {
             this.material.uniforms.W.value = w;
             this.material.uniforms.H.value = h;

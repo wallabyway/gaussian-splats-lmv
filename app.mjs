@@ -73,6 +73,8 @@ async function loadSplats(url) {
 
         splatRenderer = new GaussianSplatRenderer();
         await splatRenderer.init(data);
+        const { clientWidth, clientHeight } = viewer.container;
+        splatRenderer.resize(clientWidth, clientHeight);
 
         const METERS_TO_FEET = 3.28084;
         splatRenderer.mesh.scale.set(METERS_TO_FEET, METERS_TO_FEET, METERS_TO_FEET);
@@ -118,5 +120,6 @@ if (splatRenderer) {
 }
 
 window.addEventListener('resize', () => {
-    splatRenderer?.resize(innerWidth, innerHeight);
+    const { clientWidth, clientHeight } = viewer.container;
+    splatRenderer?.resize(clientWidth, clientHeight);
 });
