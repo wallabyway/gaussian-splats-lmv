@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Gaussian Splats Viewer</title>
+    <title>LMV + 3DGS Splat Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css">
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html, body { height: 100%; margin: 0; padding: 0; overflow: hidden; }
-        nav { position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
-        #viewer { position: absolute; top: 3.5rem; left: 0; right: 0; bottom: 0; }
+        #viewer { height: calc(100% - 3.5rem); }
     </style>
 </head>
 <body class="bg-gray-100">
 
-<nav class="h-14 bg-white border-b border-gray-200 flex items-center px-4 gap-4 shadow-sm">
+<nav class="h-14 bg-red-600 border-b border-red-700 flex items-center px-4 gap-4 shadow-sm">
     <div class="flex items-center gap-2">
         <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">G</div>
         <span class="font-semibold text-gray-800 text-lg">LMV + 3DGS Splat Demo</span>
