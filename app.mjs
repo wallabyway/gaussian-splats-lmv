@@ -51,11 +51,11 @@ const populateModels = async () => {
         const opt = document.createElement('option');
         opt.value = urn;
         opt.textContent = name;
-        if (name.endsWith('.rvt')) opt.selected = true;
+        if (name.toLowerCase() === 'office.rvt') opt.selected = true;
         select.appendChild(opt);
     });
-    const rvt = models.find(m => m.name.endsWith('.rvt'));
-    if (rvt) loadModel(rvt.urn);
+    const officeRvt = models.find(m => m.name.toLowerCase() === 'office.rvt');
+    if (officeRvt) loadModel(officeRvt.urn);
 };
 
 async function loadSplats(url) {
@@ -107,6 +107,10 @@ viewer.addEventListener(Autodesk.Viewing.CUTPLANES_CHANGE_EVENT, () => {
     const planes = viewer.getCutPlanes() || [];
     splatRenderer.setCutPlanes(planes);
     viewer.impl.invalidate(false, false, true);
+});
+
+viewer.addEventListener(Autodesk.Viewing.GEOMETRY_LOADED_EVENT, () => {
+    viewer.navigation.toPerspective();
 });
 
 await populateModels();
